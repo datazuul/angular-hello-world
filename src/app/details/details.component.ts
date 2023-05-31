@@ -55,8 +55,13 @@ export class DetailsComponent {
   housingLocation: HousingLocation | undefined;
 
   constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-    this.housingLocation = this.housingService.getHousingLocationById(housingLocationId);
+    const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
+    // parseInt: "10" is the radix: A value between 2 and 36 that specifies the base of the number in `string`.
+    // If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.
+    // All other strings are considered decimal.
+    this.housingService.getHousingLocationById(housingLocationId).then(housingLocation => {
+      this.housingLocation = housingLocation;
+    });
   }
 
   submitApplication() {
