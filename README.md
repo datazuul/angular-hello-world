@@ -5,7 +5,7 @@ Following the tutorial at <https://angular.io/tutorial/first-app>
 ## Run it
 
 ```
-$ cd angular-hello-world
+$ cd tutorial-angular-homes
 $ npm install
 $ ng serve
 $ json-server --watch db.json
